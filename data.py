@@ -10,7 +10,7 @@ currentTemp = loadedJSON['data']['current_condition'][0]["temp_C"]
 currentTime = loadedJSON['data']['current_condition'][0]["observation_time"]
 currentDate = loadedJSON['data']['weather'][0]["date"]
 currentCity = loadedJSON['data']['request'][0]["query"]
-string_to_print = currentTemp + " " + currentTime + " " + currentDate+ " " + currentCity+"\n"
+string_to_print = currentTemp + "," + currentTime + " " + currentDate+ "," + currentCity+"\n"
 
 def _print_to_file(str):
     dataFile = open("tempData.dat", "a")

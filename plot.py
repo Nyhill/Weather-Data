@@ -6,14 +6,14 @@ import matplotlib.cbook as cbook
 import matplotlib.dates as mdates
 from matplotlib.dates import bytespdate2num
 
-datafile = cbook.get_sample_data("/home/polaris/PycharmProjects/WeatherData/tempData.dat", asfileobj=False)
+datafile = cbook.get_sample_data("/home/eels/code/temp-plotter/tempData.dat", asfileobj=False)
 print("loading", datafile)
 
 #datefunc = lambda  x:mdates.date2num(datetime.strptime(x,'%Y-%m-%d'))
 
 dates, temps = np.loadtxt(datafile, delimiter=',', dtype=float,
-                           converters={0: bytespdate2num('%Y-%m-%d %I:%M %p' )},
-                            usecols=(0,1), unpack=True)
+                           converters={1: bytespdate2num('%I:%M %p %Y-%m-%d')},
+                            usecols=(1,0), unpack=True)
 fig = plt.figure()
 #1x1 grid
 ax = fig.add_subplot(111)
